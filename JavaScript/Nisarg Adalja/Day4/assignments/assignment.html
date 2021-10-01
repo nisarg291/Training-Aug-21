@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>University Of Mumbai</h1>
+    <div id="time"></div>
+    <div class="" id="result"></div>
+    <script>
+        
+        /*
+         University of Mumbai needs to set an online exam for their students. For that they need to set a timer for three hours. After 3 hours exams should be finished.
+
+Note: Use promises and callbacks
+        */
+        var result=document.getElementById("result");
+        var time=document.getElementById("time");
+         function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function examstart(){
+            console.log("exam start");
+            //for(var count=0;count<40;count++){
+            for(var count=0;count<3600*6;count++){
+            var dt=new Date();
+            var hour=dt.getHours();
+            var minutes=dt.getMinutes();
+            var seconds=dt.getSeconds();
+            result.innerHTML="Exam Started";
+            time.innerHTML=hour+':'+minutes+':'+seconds+' ';
+            count=count+1;
+            await sleep(1000);
+            }
+
+        }
+        function examend(){
+            console.log("exam end");
+            result.innerHTML="Exam Ended";
+        } 
+        async function call(){
+        examstart();
+        await sleep(3600*3*1000);
+        //await sleep(20000);//for 20 second it shows exam Ended after 20 second
+        //sleep((3600*3*1000)); //for 3 hours 3600*3*1000
+        examend();
+        }
+        
+        call();
+    </script>
+</body>
+</html>
