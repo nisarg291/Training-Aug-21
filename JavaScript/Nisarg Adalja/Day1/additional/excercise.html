@@ -8,8 +8,14 @@
     <title>Document</title>
 </head>
 
-<body>
+<body id="main">
     <div id="demo"></div>
+    <button onclick="alert('Hello')">Click me.</button>
+            <!-- When the button is clicked, the function "myFunction" should be executed.-->
+        <button onclick="myFunction()">Click me.</button>
+        <!-- The <div> element should turn red when someone moves the mouse over it. -->
+        <div onmouseover="this.style.backgroundColor='red'">myDIV.</div>
+
     <script>
         //Create a variable called carName and assign the value Volvo to it.
         var carName = "Volvo";
@@ -49,7 +55,7 @@
         //Objects
         /* Alert "John" by extracting information from the person object.
          */
-        const person = {
+        var person = {
             firstName: "John",
             lastName: "Doe"
         };
@@ -59,7 +65,7 @@
         /* Add the following property and value to the person object: country: Norway.
 
         */
-        const person = {
+        var person = {
             firstName: "John",
             lastName: "Doe",
             country: "Norway"
@@ -69,7 +75,7 @@
         Then, access the object to alert("John is 50").
 
         */
-        const person = {
+        var person = {
             name: "John",
             age: 50
         };
@@ -90,12 +96,7 @@
         <!-- Events -->
         <!-- The <button> element should do something when someone clicks on it. Try to fix it! -->
 
-        <button onclick="alert('Hello')">Click me.</button>
-            <!-- When the button is clicked, the function "myFunction" should be executed.-->
-        <button onclick="myFunction()">Click me.</button>
-        <!-- The <div> element should turn red when someone moves the mouse over it. -->
-        <div onmouseover="this.style.backgroundColor='red'">myDIV.</div>
-
+        
 </body>
 
 </html>

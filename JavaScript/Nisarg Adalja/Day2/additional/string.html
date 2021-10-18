@@ -10,7 +10,7 @@
     <script>
         /*String Length
 The length property returns the length of a string:*/
-let txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 txt.length     // Returns 26
 /* The slice() Method
 slice() extracts a part of a string and returns the extracted part in a new string.
@@ -18,7 +18,7 @@ slice() extracts a part of a string and returns the extracted part in a new stri
 The method takes 2 parameters: the start position, and the end position (end not included).
 
 This example slices out a portion of a string from position 7 to position 12 (13-1):*/
-let str = "Apple, Banana, Kiwi";
+var str = "Apple, Banana, Kiwi";
 str.slice(7, 13);    // Returns Banana slice method return string
 str.slice(-1,1);//last char
 str.slice(-12,-6);
@@ -28,41 +28,41 @@ str.slice(7);
 substring() is similar to slice().
 
 The difference is that substring() cannot accept negative indexes.*/
-let str1 = "Apple, Banana, Kiwi";
+var str1 = "Apple, Banana, Kiwi";
 str1.substring(7, 13);    // Returns Banana
 /* The substr() Method
 substr() is similar to slice().
 
 The difference is that the second parameter specifies the length of the extracted part.*/
-let str2 = "Apple, Banana, Kiwi";
+var str2 = "Apple, Banana, Kiwi";
 str2.substr(7, 6)    // Returns Banana
 
-let str3 = "Apple, Banana, Kiwi";
+var str3 = "Apple, Banana, Kiwi";
 str3.substr(7)    // Returns Banana,Kiwi
 
-let str4= "Apple, Banana, Kiwi";
+var str4= "Apple, Banana, Kiwi";
 str4.substr(-4)    // Returns Kiwi
 /*Replacing String Content
 The replace() method replaces a specified value with another value in a string:*/
-let text = "Please visit Microsoft!";
-let newText = text.replace("Microsoft", "W3Schools");
+var text = "Please visit Microsoft!";
+var newText = text.replace("Microsoft", "W3Schools");
 
-let text1="Result is Zero";
+var text1="Result is Zero";
 var a=10;
 var b=20;
 if(a+b==30){
-    let nxttxt=text1.replace("Zero","Thirty");
+    var nxttxt=text1.replace("Zero","Thirty");
     console.log(nxttxt);
 }
 
 /*By default, the replace() method replaces only the first match:*/
-let text2 = "Please visit Microsoft and Microsoft!";
+var text2 = "Please visit Microsoft and Microsoft!";
 newText = text2.replace("Microsoft", "W3Schools");
 
 /*To replace case insensitive, use a regular expression with an /i flag (insensitive):
 
 Example*/
-let text3 = "Please visit Microsoft!";
+var text3 = "Please visit Microsoft!";
 newText = text3.replace(/MICROSOFT/i, "W3Schools");
 /*To replace all matches, use a regular expression with a /g flag (global match):
 
@@ -78,9 +78,9 @@ text1 = "Hello World!";       // String
 text2 = text1.toLowerCase();  // text2 is text1 converted to lower
 
 // Concat method joins two or more strings
-let txt1="hello";
-let txt2="world";
-let txt3=txt1.concat(" ",txt2);
+var txt1="hello";
+var txt2="world";
+var txt3=txt1.concat(" ",txt2);
 txt="Hello".concat(" ","World");
 // Trim Method
 //removes whitespace from both sides of a String
@@ -117,20 +117,20 @@ console.log(arr1);
 //The indexOf() method returns the index of (the position of) the first occurrence of a specified text in a string:
 
 str = "Please locate where 'locate' occurs!";
-str.indexOf("locate")    // Returns 7
+console.log(str.indexOf("locate"));    // Returns 7
 //The lastIndexOf() method returns the index of the last occurrence of a specified text in a string:
 str = "Please locate where 'locate' occurs!";
-str.lastIndexOf("locate")    // Returns 21
-str.lastIndexOf("nisarg") //return -1
+console.log(str.lastIndexOf("locate"));    // Returns 21
+console.log(str.lastIndexOf("nisarg")); //return -1
 
 str = "Please locate where 'locate' occurs!";
-str.indexOf("locate", 15) //return 21
+console.log(str.indexOf("locate", 15)); //return 21
 
 str = "Please locate where 'locate' occurs!";
-str.lastIndexOf("locate", 15)    //retruns 7
+console.log(str.lastIndexOf("locate", 15));  //retruns 7
 
 //The search() method searches a string for a specified value and returns the position of the match:
-str.search("locate");
+console.log(str.search("locate"));
 
 /*
 The two methods, indexOf() and search(), are equal?
@@ -151,29 +151,29 @@ The includes() method returns true if a string contains a specified value.
 */
 text = "Hello world, welcome to the universe.";
 text.includes("world");// Returns true
-text.includes("world",12) //here 12 is start index it returns false
+console.log(text.includes("world",12)); //here 12 is start index it returns false
 
 //The startsWith() method returns true if a string begins with a specified value, otherwise false:
 text = "Hello world, welcome to the universe.";
-text.startsWith("Hello"); //Returns True
+console.log(text.startsWith("Hello")); //Returns True
 
 //The endsWith() method returns true if a string ends with a specified value, otherwise false:
 text="John Doe";
-text.endsWith("Doe");
+console.log(text.endsWith("Doe"));
 
 text = "Hello world, welcome to the universe.";
-text.endsWith("world", 11)  //return True
+console.log(text.endsWith("world", 11))  //return True
 
 //String Templates
-let firstName = "John";
-let lastName = "Doe";
+var firstName = "John";
+var lastName = "Doe";
 
 text = `Welcome ${firstName}, ${lastName}!`;
 
-let header = "Templates Literals";
-let tags = ["template literals", "javascript", "es6"];
+var header = "Templates Literals";
+var tags = ["template literals", "javascript", "es6"];
 
-let html = `<h2>${header}</h2><ul>`;
+var html = `<h2>${header}</h2><ul>`;
 for (const x of tags) {
   html += `<li>${x}</li>`;
 }
