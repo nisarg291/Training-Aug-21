@@ -113,6 +113,86 @@ var swiper2 = new Swiper('.swiper-container2', {
 
 
 });
+
+var swiper3 = new Swiper('.swiper-container3', {
+  slidesPerView: 2,
+  spaceBetween: 10,
+  autoplay: {
+    delay: 5000,
+  },
+  //init: true,
+  // direction: 'horizontal',
+  //loop: true,
+
+  navigation: {
+    nextEl: '.next-btn-3',
+    prevEl: '.prev-btn-3',
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 4,
+      spaceBetween: 10,
+    },
+    769: {
+      slidesPerView: 6,
+      spaceBetween: 10,
+    },
+
+    1024: {
+      slidesPerView: 8,
+      spaceBetween:5,
+    },
+
+    1440: {
+      slidesPerView: 8,
+      spaceBetween:5,
+    },
+
+  },
+
+
+});
+
+var swiper4 = new Swiper('.swiper-container5', {
+  slidesPerView: 2,
+  spaceBetween: 10,
+  autoplay: {
+    delay: 5000,
+  },
+  //init: true,
+  // direction: 'horizontal',
+  //loop: true,
+
+  navigation: {
+    nextEl: '.next-btn-4',
+    prevEl: '.prev-btn-4',
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 4,
+      spaceBetween: 10,
+    },
+    769: {
+      slidesPerView: 4,
+      spaceBetween: 10,
+    },
+
+    1024: {
+      slidesPerView: 4,
+      spaceBetween:5,
+    },
+
+    1440: {
+      slidesPerView: 4,
+      spaceBetween:5,
+    },
+
+  },
+
+
+});
+
+
 $(function () {
 
   $.getJSON("offers.json", function (result, status, xhr) {
@@ -162,15 +242,14 @@ $(function () {
     //console.log(status);
     $.each(result.brands, function (i, field) {
       //console.log(result.offers);
-        $("#sliderWrapperOfBrands").append(`<div class="swiper-slide swiper-slide-active d-inlne bg-white">
+        $("#sliderWrapperOfBrands").append(`<div class="swiper-slide swiper-slide-active me-3 d-inlne bg-white">
                         
                             <div class="card d-inline swiper-brand shadow-sm h-100 opacity-50">
                                
-                                <div class="card-body row border-2 border-secondary text-dark opacity-100">
-                                    <img src="` + field.Image + `" class="d-block card-image col-12 me-0">
+                                <div class="card-body border-white row text-dark opacity-100">
+                                    <img src="` + field.Image + `" class="d-block card-image col-12">
                                     </div>
-
-                              
+            
                             </div>
                         
                     </div>`);
@@ -178,21 +257,77 @@ $(function () {
     });
 
   });
-
-  });
-
-  $.getJSON("recommended.json", function (result, status, xhr) {
+   $.getJSON("recommended.json", function (result, status, xhr) {
     //console.log(status);
-    $.each(result.brands, function (i, field) {
+    $.each(result.recommended, function (i, field) {
       //console.log(result.offers);
-        $("#sliderWrapperOfRecommended").append(`<div class="swiper-slide swiper-slide-active d-inlne bg-white">
+      if(field.Offer=="Not Given"){
+        $("#sliderWrapperOfRecommended").append(`<div class="swiper-slide swiper-slide-active me-2 d-inlne bg-white">
                         
-                            <div class="card d-inline swiper-brand shadow-sm h-100 opacity-50">
+                            <div class="card d-inline swiper-recommended shadow-sm  opacity-50">
                                
-                                <div class="card-body row border-2 border-secondary text-dark opacity-100">
-                                    <img src="` + field.Image + `" class="d-block card-image col-12 me-0">
+                                <div class="card-body  border border-2 border-secondary rounded row text-dark h-100 opacity-100">
+                                    <img src="` + field.Image + `" class="d-block card-image col-12">
+                                     
                                 </div>
+                                
                                 <div>
+                                <h5 class="mt-2 me-0">`+field.brandName.substring(0,20)+`...</h5>
+                                <p>`+field.Quantity.substring(0,20)+`...</p>
+                                <p class="text-bold"><b>MRP : `+field.Price +`</b></p>
+                                </div>
+
+                              
+                            </div>
+                        
+                    </div>`);
+      }
+      else{
+         $("#sliderWrapperOfRecommended").append(`<div class="swiper-slide swiper-slide-active me-2 d-inlne bg-white">
+                        
+                            <div class="card d-inline swiper-recommended shadow-sm me-5 ms-5 opacity-50">
+                               
+                                <div class="card-body  border border-2 border-secondary rounded row text-dark h-100 opacity-100">
+                                    <img src="` + field.Image + `" class="d-block card-image col-12 me-3">
+                                     
+                                </div>
+                                <div class="_2jHx3 text-white bg-danger z-index-5 opacity-75"><span class="_1LfDt">`+field.Offer+`&nbsp;OFF</span></div>
+       
+                                <div>
+                                <h5 class="mt-2 me-0">`+field.brandName.substring(0,20)+`...</h5>
+                                <p>`+field.Quantity.substring(0,20)+`...</p>
+                                <p class="text-bold"><b>MRP : `+field.Price +`</b></p>
+                                </div>
+
+                              
+                            </div>
+                        
+                    </div>`);
+      }
+     
+     
+    });
+
+  });
+
+   $.getJSON("articles.json", function (result, status, xhr) {
+    //console.log(status);
+    $.each(result.articles, function (i, field) {
+      //console.log(result.offers);
+      
+        $("#sliderWrapperOfArticles").append(`<div class="swiper-slide swiper-slide-active me-2 d-inlne bg-white">
+                        
+                            <div class="card d-inline swiper-article shadow-sm me-5 ms-5 opacity-50 p-0">
+                               
+                                <div class="card-body row text-dark h-100 opacity-100 p-0">
+                                    <img src="` + field.Image + `" class="d-block card-image col-12 rounded-3" style="border-radius:20px !important;">
+                                     
+                                </div>
+                                
+                                <div>
+                                <h5 class="mt-2 me-0">`+field.ArticleName.substring(0,40)+`...</h5>
+                                <p>`+field.Details.substring(0,20)+`...</p>
+                                <p class="text-bold"><a class="text-decoration-none text-success">Read Mode > </a></p>
                                 </div>
 
                               
@@ -206,7 +341,8 @@ $(function () {
 
   });
 
-  
+ 
+$(function () { 
   $.getJSON("labTests.json", function (result, status, xhr) {
     $.each(result.labTests, function (i, field) {
 
@@ -281,4 +417,7 @@ $(function () {
 
 
   });
+
+  });
 });
+ 
