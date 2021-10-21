@@ -192,6 +192,45 @@ var swiper4 = new Swiper('.swiper-container5', {
 
 });
 
+var swiper4 = new Swiper('.swiper-container6', {
+  slidesPerView: 2,
+  spaceBetween: 10,
+  autoplay: {
+    delay: 5000,
+  },
+  //init: true,
+  // direction: 'horizontal',
+  //loop: true,
+
+  navigation: {
+    nextEl: '.next-btn-6',
+    prevEl: '.prev-btn-6',
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 4,
+      spaceBetween: 10,
+    },
+    769: {
+      slidesPerView: 4,
+      spaceBetween: 10,
+    },
+
+    1024: {
+      slidesPerView: 4,
+      spaceBetween:5,
+    },
+
+    1440: {
+      slidesPerView: 4,
+      spaceBetween:5,
+    },
+
+  },
+
+
+});
+
 
 $(function () {
 
@@ -339,6 +378,33 @@ $(function () {
 
   });
 
+   $.getJSON("Testimonial.json", function (result, status, xhr) {
+    //console.log(status);
+    $.each(result.testimonials, function (i, field) {
+      //console.log(result.offers);
+      
+        $("#sliderWrapperOfTestimonials").append(`<div class="swiper-slide swiper-slide-active me-2 d-inlne bg-white">
+                        
+                            <div class="card d-inline swiper-article shadow-sm me-5 ms-5 opacity-50 p-0">
+                                <div class="card-header bg-white border border-0">
+                                <h5 class="mt-2 me-0">`+field.UserName+`...</h5>
+                                <p>`+field.Date+`...</p>
+                                </div>
+                                <div class="card-body row text-dark h-100 opacity-100 p-0" style="background:#f2fff8;">
+                                    <p>` + field.message.substring(0,150) + `...</p>
+                                     
+                                </div>
+                                
+                               
+
+                              
+                            </div>
+                        
+                    </div>`);
+     
+    });
+
+  });
   });
 
  
